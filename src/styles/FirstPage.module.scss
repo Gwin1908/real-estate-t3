@@ -1,0 +1,91 @@
+.firstPage {
+  height: 100vh;
+  width: 100%;
+  background: url("../../public/bg-image.jpg") no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 0;
+  z-index: -1;
+
+  .title {
+    position: relative;
+    top: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: calc(12pt + .25vw);
+
+    &__header {
+      top: 0;
+      font-size: calc(36pt + 1.5vw);
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 1em;
+      color: #a855f7
+    }
+
+    .keyFrases {
+      width: inherit;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+    }
+  }
+}
+
+.scrollMe {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  width: 40px;
+  height: auto;
+  opacity: .35;
+  cursor: pointer;
+  transform: translateX(-50%);
+  animation: highlightScroll 2s ease-in-out infinite alternate;
+  transition: opacity .25s ease-in-out, animation .25s ease-in-out;
+  z-index: 3;
+
+  &:hover {
+    animation: showScroll .25s ease-in-out 1 both;
+    opacity: 1;
+  }
+
+  .scroll {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: demoScroll 2s cubic-bezier(.65, -.55, .25, 1.5) infinite;
+  }
+}
+
+
+@keyframes showScroll {
+
+  from,
+  50% {
+    opacity: .50;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes demoScroll {
+
+  from,
+  20% {
+    transform: translateY(0) scaleY(1);
+  }
+
+  100% {
+    transform: translateY(36px) scaleY(2);
+    opacity: 0;
+  }
+}
