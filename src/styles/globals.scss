@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+main {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+
+  &:visited {
+    color: inherit;
+  }
+}
