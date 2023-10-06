@@ -1,0 +1,46 @@
+.header {
+  width: 100%;
+  color: white;
+  background: radial-gradient(circle, rgba(0, 10, 12, 1) 55%, rgba(0, 10, 12, .75) 100%);
+  position: absolute;
+
+  .wrapper {
+    display: flex;
+    position: relative;
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 30px 50px;
+    box-sizing: border-box;
+    align-items: center;
+
+    .logo {
+      font-size: calc(16pt + .25vw);
+      text-transform: uppercase;
+      line-height: 1em;
+      transition: color .5s ease-in-out;
+    }
+
+    .nav {
+      display: flex;
+      position: relative;
+      font-size: calc(8pt + .05vw);
+      text-transform: uppercase;
+      text-align: right;
+      letter-spacing: 2px;
+      justify-content: flex-end;
+      flex: 1 0 auto;
+      gap: 1em;
+
+      &__link {
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 0 5px;
+        list-style: none;
+        flex: 0 1 auto;
+      }
+
+    }
+
+  }
+}
