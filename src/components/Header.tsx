@@ -11,16 +11,16 @@ function Header() {
           Agency Name
         </Link>
         <div className={styles.nav}>
-          <Link className={styles.nav__link} href="/">
+          <Link className={styles.nav__link} href="/properties">
             Properties
           </Link>
-          <Link className={styles.nav__link} href="/">
+          <Link className={styles.nav__link} href="/news">
             News
           </Link>
-          <Link className={styles.nav__link} href="/">
+          <Link className={styles.nav__link} href="/blog">
             Blog
           </Link>
-          <Link className={styles.nav__link} href="/">
+          <Link className={styles.nav__link} href="/contact">
             Contact
           </Link>
         </div>

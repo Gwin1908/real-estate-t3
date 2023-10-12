@@ -1,10 +1,8 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
-import Header from "~/components/Header";
-
-import { api } from "~/utils/api";
-
 import { Montserrat } from "next/font/google";
+import { api } from "~/utils/api";
+import Header from "~/components/Header";
 import FirstPage from "./firstpage";
 import Featured from "./featured";
 
@@ -24,19 +22,19 @@ export default function Home() {
         <meta name="description" content="Real esate agency from Odessa" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={montserrat.className} >
+      <main className={montserrat.className}>
         <Header />
         <FirstPage />
         <Featured />
       </main>
-      {/* <AuthShowcase /> */}
+      <AuthShowcase />
     </>
   );
 }
 
 function AuthShowcase() {
   const { data: sessionData } = useSession();
-
+  
   const { data: secretMessage } = api.example.getSecretMessage.useQuery(
     undefined, // no input
     { enabled: sessionData?.user !== undefined },
