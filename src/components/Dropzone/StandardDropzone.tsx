@@ -42,7 +42,7 @@ export const StandardDropzone = () => {
 
   const handleSubmit = useCallback(async () => {
     if (acceptedFiles.length > 0 && presignedUrl !== null) {
-      const file = acceptedFiles[0] as File;
+      const file = acceptedFiles[0]!;
       await axios
         .put(presignedUrl, file.slice(), {
           headers: { "Content-Type": file.type },
