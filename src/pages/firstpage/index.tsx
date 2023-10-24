@@ -25,14 +25,14 @@ function FirstPage() {
         preserveAspectRatio="xMidYMid meet"
         // tabIndex="-1"
       >
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <rect
             width="70"
             height="118"
             x="1.5"
             y="1.5"
             stroke="#FFF"
-            stroke-width="3"
+            strokeWidth="3"
             rx="36"
           ></rect>
           <circle
