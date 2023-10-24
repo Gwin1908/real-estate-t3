@@ -1,0 +1,24 @@
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  background: #60a5fa;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  .title {
+    text-align: center;
+    color: #030712;
+  }
+
+  input {
+    width: 390px;
+    height: 25px;
+    border-radius: 5px;
+    border: transparent;
+  }
+
+}
