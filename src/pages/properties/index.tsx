@@ -10,7 +10,7 @@ import { RouterOutputs, api } from "~/utils/api";
 const UploadedImages = ({
   images,
 }: {
-  images: RouterOutputs["s3"]["getObjects"];
+  images: RouterOutputs["s3"]["getPresignedImages"];
 }) => {
   if (!images || images.length === 0) return <div>No images uploaded yet.</div>;
 
