@@ -29,8 +29,9 @@ function PropertyItem({
         onClick={() => {
           handleDelete(id);
         }}
+        className={styles.delete}
       >
-        X
+        Delete item
       </button>
       {/* <Image src={image} alt="property" width={300} height={200} /> */}
       <h2>{name}</h2>

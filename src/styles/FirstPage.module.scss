@@ -15,7 +15,10 @@
     justify-content: center;
     align-items: center;
     color: #fff;
+    font-weight: 600;
+    gap: 35px;
     font-size: calc(12pt + .25vw);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
 
     &__header {
       top: 0;
@@ -31,6 +34,7 @@
       display: flex;
       justify-content: center;
       gap: 5rem;
+      filter: drop-shadow(2px 4px 6px black);
     }
   }
 }

@@ -2,12 +2,13 @@
   position: relative;
 
   .container {
-    padding: 50px 100px;
+    padding: 5vh 15vw;
 
     .header {
       text-align: center;
       font-size: calc(18pt + .5vw);
       line-height: 1.1em;
+      margin-bottom: 25px;
     }
 
     .mainCard {

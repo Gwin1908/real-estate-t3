@@ -56,8 +56,8 @@ function AddProperty() {
         {...register("description")}
       />
       <input type="text" placeholder="Telephone" {...register("telephone")} />
-      <input type="submit" />
-      <Link href="/">Cancel</Link>
+      <input type="submit" className={styles.submit} />
+      <Link href="/">Back</Link>
     </form>
   );
 }
