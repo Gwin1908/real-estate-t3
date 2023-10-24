@@ -16,7 +16,7 @@ export const s3Router = createTRPCRouter({
 
     console.log(listObjectsOutput);
 
-    const keysArr = listObjectsOutput.Contents.map((element) => {
+    const keysArr = listObjectsOutput.Contents!.map((element) => {
       return element.Key;
     });
 
