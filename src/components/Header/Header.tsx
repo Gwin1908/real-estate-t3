@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Header.module.scss";
+import styles from "~/styles/Header.module.scss";
 
 function Header() {
   return (
@@ -17,8 +17,8 @@ function Header() {
           <Link className={styles.nav__link} href="/news">
             News
           </Link>
-          <Link className={styles.nav__link} href="/blog">
-            Blog
+          <Link className={styles.nav__link} href="/property">
+            Single Property
           </Link>
           <Link className={styles.nav__link} href="/contact">
             Contact
