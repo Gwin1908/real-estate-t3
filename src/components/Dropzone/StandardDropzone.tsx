@@ -53,9 +53,9 @@ export const StandardDropzone = () => {
         })
         .catch((err) => console.error(err));
       setSubmitDisabled(true);
-      await apiUtils.s3.getObjects.invalidate();
+      await apiUtils.s3.getPresignedImages.invalidate();
     }
-  }, [acceptedFiles, apiUtils.s3.getObjects, presignedUrl]);
+  }, [acceptedFiles, apiUtils.s3.getPresignedImages, presignedUrl]);
 
   return (
     <section>
