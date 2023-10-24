@@ -51,14 +51,21 @@ model Session {
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+enum Role {
+    USER
+    ADMIN
+}
+
 model User {
-    id            String    @id @default(cuid())
+    id            String     @id @default(cuid())
     name          String?
-    email         String?   @unique
+    email         String?    @unique
     emailVerified DateTime?
     image         String?
+    role          Role       @default(USER)
     accounts      Account[]
     sessions      Session[]
+    Property      Property[]
 }
 
 model VerificationToken {
@@ -76,9 +83,11 @@ model Property {
     price       String
     description String   @db.VarChar(255)
     telephone   String
-    authorId    String
+    images      String? 
     crearedAt   DateTime @default(now())
     updatedAt   DateTime @default(now())
+    user        User     @relation(fields: [userId], references: [id])
+    userId      String
 
-    @@index([name])
+    @@index([userId])
 }

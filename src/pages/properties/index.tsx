@@ -1,29 +1,50 @@
+import { NextPage } from "next";
+import styles from "../../styles/Properties.module.scss";
 import Image from "next/image";
-import styles from "../../styles/Featured.module.scss";
 import Link from "next/link";
+import AddProperty from "~/components/AddProperty/AddProperty";
+import { StandardDropzone } from "~/components/Dropzone/StandardDropzone";
+import PropertiesList from "~/components/PropertiesList/PropertiesList";
+import { RouterOutputs, api } from "~/utils/api";
+
+const UploadedImages = ({
+  images,
+}: {
+  images: RouterOutputs["s3"]["getObjects"];
+}) => {
+  if (!images || images.length === 0) return <div>No images uploaded yet.</div>;
+
+  return (
+    <div className="flex flex-row gap-2">
+      <h2 className="text-lg font-semibold">Uploaded images</h2>
+      {images.map((url: string) => {
+        return (
+          <div key={url}>
+            <a href={url} target="_blank" rel="noreferrer">
+              <img className={styles.image} src={url} alt="property photo" />
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 function Properties() {
-  function submitFrom(e: SubmitEvent) {
-    e.preventDefault();
-    console.log("submitted");
-    console.log(e);
-    return;
-  }
+  const { data, isLoading } = api.s3.getPresignedImages.useQuery();
+
+  console.log(data);
+
   return (
     <section className={styles.properties}>
-      <h1>Add propety</h1>
-      <form
-        onSubmit={(e) => {
-          submitFrom(e);
-        }}
-      >
-        <input type="text" placeholder="Property Name" />
-        <input type="text" placeholder="Property Address" />
-        <input type="text" placeholder="Property Price" />
-        <input type="text" placeholder="Property Description" />
-        <button type="submit">Add Property</button>
-        <Link href="/">Cancel</Link>
-      </form>
+      <div className="flex justify-center">
+        <AddProperty />
+      </div>
+      <PropertiesList />
+      <div className="flex justify-center gap-32">
+        <StandardDropzone />
+      </div>
+      {!isLoading && data && <UploadedImages images={data} />}
     </section>
   );
 }
