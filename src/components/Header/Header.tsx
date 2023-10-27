@@ -20,8 +20,8 @@ function Header() {
           <Link className={styles.nav__link} href="/property">
             Single Property
           </Link>
-          <Link className={styles.nav__link} href="/contact">
-            Contact
+          <Link className={styles.nav__link} href="/contacts">
+            Contacts
           </Link>
         </div>
       </nav>

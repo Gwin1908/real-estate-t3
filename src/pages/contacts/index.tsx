@@ -1,7 +1,11 @@
+import Header from "~/components/Header/Header";
+
 function Contacts() {
   return (
-    <div>To be filled</div>
-  )
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default Contacts
