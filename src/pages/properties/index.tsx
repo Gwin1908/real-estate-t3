@@ -1,9 +1,7 @@
-import { NextPage } from "next";
 import styles from "../../styles/Properties.module.scss";
-import Image from "next/image";
-import Link from "next/link";
 import AddProperty from "~/components/AddProperty/AddProperty";
 import { StandardDropzone } from "~/components/Dropzone/StandardDropzone";
+import Header from "~/components/Header/Header";
 import PropertiesList from "~/components/PropertiesList/PropertiesList";
 import { RouterOutputs, api } from "~/utils/api";
 
@@ -37,14 +35,19 @@ function Properties() {
 
   return (
     <section className={styles.properties}>
-      <div className="flex justify-center">
+      <Header />
+      <div className={styles.addProperty}>
         <AddProperty />
       </div>
-      <PropertiesList />
+      <div className={styles.propertyWrapper}>
+        <PropertiesList />
+      </div>
       <div className="flex justify-center gap-32">
         <StandardDropzone />
       </div>
-      {!isLoading && data && <UploadedImages images={data} />}
+      <div className="flex justify-center gap-32 pt-5 pb-5">
+        {!isLoading && data && <UploadedImages images={data} />}
+      </div>
     </section>
   );
 }

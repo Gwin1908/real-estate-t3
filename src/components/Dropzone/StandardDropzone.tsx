@@ -58,7 +58,7 @@ export const StandardDropzone = () => {
   }, [acceptedFiles, apiUtils.s3.getPresignedImages, presignedUrl]);
 
   return (
-    <section>
+    <section className="rounded-xl border-2 border-indigo-600 p-3">
       <h2 className="text-lg font-semibold">Standard Dropzone</h2>
       <p className="mb-3">Simple example for uploading one file at a time</p>
       <div {...getRootProps()} className="dropzone-container">

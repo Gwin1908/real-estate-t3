@@ -25,20 +25,23 @@ function PropertyItem({
 
   return (
     <div className={styles.property}>
+      {/* <Image src={image} alt="property" width={300} height={200} /> */}
+      <div className={styles.image}>Image</div>
       <button
         onClick={() => {
           handleDelete(id);
         }}
         className={styles.delete}
       >
-        Delete item
+        X
       </button>
-      {/* <Image src={image} alt="property" width={300} height={200} /> */}
-      <h2>{name}</h2>
-      <p>{address}</p>
-      <p>{price}</p>
-      <p>{description}</p>
-      <p>{telephone}</p>
+      <div className={styles.listingInfo}>
+        <h2>{name}</h2>
+        <p>{address}</p>
+        <p>{price}</p>
+        <p>{description}</p>
+        <p>{telephone}</p>
+      </div>
     </div>
   );
 }

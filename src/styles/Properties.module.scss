@@ -1,8 +1,23 @@
 .properties {
-  padding: 0 2rem;
+  background: url("../../public/pr-image2.jpg") no-repeat;
+  background-size: cover;
+  height: 45vh;
 }
 
-.image{
+.image {
   width: 200px;
   height: 200px;
 }
+
+.addProperty {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.propertyWrapper{
+  padding: 50px 100px;
+  margin-top: 300px;
+  position: relative;
+}
+

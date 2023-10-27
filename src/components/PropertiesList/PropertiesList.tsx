@@ -11,7 +11,7 @@ function PropertiesList() {
 
   return (
     <>
-      <section className={styles.properties}>
+      <div className={styles.properties}>
         <div className={styles.propertiesList}>
           {data?.map(({ id, name, address, price, description, telephone }) => (
             <PropertyItem
@@ -25,7 +25,7 @@ function PropertiesList() {
             />
           ))}
         </div>
-      </section>
+      </div>
     </>
   );
 }
