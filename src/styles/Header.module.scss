@@ -3,6 +3,7 @@
   color: white;
   background: radial-gradient(circle, rgba(0, 10, 12, 1) 55%, rgba(0, 10, 12, .75) 100%);
   position: absolute;
+  z-index: 2;
 
   .wrapper {
     display: flex;

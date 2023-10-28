@@ -1,8 +1,7 @@
 // import Image from "next/image";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import styles from "~/styles/Header.module.scss";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { api } from "~/utils/api";
 
 
 function Header() {
@@ -37,9 +36,9 @@ function AuthShowcase() {
 
   return (
     <div>
-      <p>
+      {/* <p>
         {sessionData && <span>{sessionData.user?.name}</span>}
-      </p>
+      </p> */}
       <button
         onClick={sessionData ? () => void signOut() : () => void signIn()}
       >

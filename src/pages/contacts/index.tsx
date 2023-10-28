@@ -1,11 +1,8 @@
-import Header from "~/components/Header/Header";
+import styles from "../../styles/Contacts.module.scss";
+
 
 function Contacts() {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+  return <div className={styles.contacts}>Contacts</div>;
 }
 
 export default Contacts
