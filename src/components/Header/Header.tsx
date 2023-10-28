@@ -17,9 +17,6 @@ function Header() {
           <Link className={styles.nav__link} href="/properties">
             Properties
           </Link>
-          <Link className={styles.nav__link} href="/news">
-            News
-          </Link>
           <Link className={styles.nav__link} href="/property">
             Single Property
           </Link>
