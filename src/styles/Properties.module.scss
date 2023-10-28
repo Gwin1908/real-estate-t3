@@ -1,4 +1,4 @@
-.properties {
+.input {
   background: url("../../public/pr-image2.jpg") no-repeat;
   background-size: cover;
   height: 45vh;
@@ -9,15 +9,15 @@
   height: 200px;
 }
 
-.addProperty {
-  display: flex;
-  justify-content: center;
-  padding-top: 100px;
+.addPropertyContainer {
+  padding-top: 50px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  margin-left: -200px;
 }
 
-.propertyWrapper{
+.propertyWrapper {
   padding: 50px 100px;
-  margin-top: 300px;
   position: relative;
 }
-

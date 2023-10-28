@@ -11,7 +11,7 @@ function PropertiesList() {
 
   return (
     <>
-      <div className={styles.properties}>
+      <div className={styles.propertiesContaier}>
         <div className={styles.propertiesList}>
           {data?.map(({ id, name, address, price, description, telephone }) => (
             <PropertyItem
