@@ -12,6 +12,22 @@ export const propertyRouter = createTRPCRouter({
     return properties;
   }),
 
+  getSearched: publicProcedure
+    .input(z.object({ text: z.string() }))
+    .query(async ({ ctx, input }) => {
+      const properties = await ctx.db.property.findMany();
+      const searchedProperties = properties.filter((property) => {
+        return (
+          property.name.includes(input.text) ||
+          property.address.includes(input.text) ||
+          property.description.includes(input.text) ||
+          property.telephone.includes(input.text) ||
+          property.price.includes(input.text)
+        );
+      });
+      return searchedProperties;
+    }),
+
   postProperty: protectedProcedure
     .input(
       z.object({

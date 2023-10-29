@@ -1,8 +1,10 @@
-import AddProperty from "~/components/AddProperty/AddProperty";
-import PropertiesList from "~/components/PropertiesList/PropertiesList";
 import { StandardDropzone } from "~/components/Dropzone/StandardDropzone";
 import { type RouterOutputs, api } from "~/utils/api";
+import PropertiesList from "~/components/PropertiesList/PropertiesList";
+import AddProperty from "~/components/AddProperty/AddProperty";
+import SearchBar from "~/components/SearchBar/SearchBar";
 import styles from "../../styles/Properties.module.scss";
+import { useState } from "react";
 
 const UploadedImages = ({
   images,
@@ -29,15 +31,17 @@ const UploadedImages = ({
 
 function Properties() {
   const { data, isLoading } = api.s3.getPresignedImages.useQuery();
-
   console.log(data);
-
+  
   return (
     <section className={styles.properties}>
-      <div className={styles.input} />
-      <div className={styles.addPropertyContainer}>
-        <AddProperty />
+      <div className={styles.filter}>
+        <SearchBar />
       </div>
+      {/* <div className={styles.addPropertyContainer}>
+        <AddProperty />
+      </div> */}
+
       <div className={styles.propertyWrapper}>
         <PropertiesList />
       </div>
