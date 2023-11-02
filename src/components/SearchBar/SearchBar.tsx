@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import styles from "../../styles/SearchBar.module.scss";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, set } from "react-hook-form";
+import { PropertiesContext } from "~/context/PropertiesContext";
 
 export type Input = {
   text: string;
 };
 
-function SearchBar() {
-  const [input, setInput] = useState("");
+function SearchBar() {  
+    const {  setSeacrhInput } = useContext(PropertiesContext);
 
   const {
     register,
@@ -20,6 +21,7 @@ function SearchBar() {
 
     const onSubmit: SubmitHandler<Input> = (newProp) => {
       console.log(newProp);
+      setSeacrhInput(newProp.text);
     };
 
   return (
