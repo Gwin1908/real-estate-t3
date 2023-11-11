@@ -30,17 +30,23 @@ const UploadedImages = ({
 };
 
 function Properties() {
+  const [show, setShow] = useState(false);
   const { data, isLoading } = api.s3.getPresignedImages.useQuery();
   console.log(data);
-  
+
   return (
     <section className={styles.properties}>
       <div className={styles.filter}>
         <SearchBar />
       </div>
-      {/* <div className={styles.addPropertyContainer}>
-        <AddProperty />
-      </div> */}
+      <div>
+        <button onClick={() => setShow(!show)}>Add property</button>
+      </div>
+      {!!show && (
+        <div className={styles.addPropertyContainer}>
+          <AddProperty />
+        </div>
+      )}
 
       <div className={styles.propertyWrapper}>
         <PropertiesList />
