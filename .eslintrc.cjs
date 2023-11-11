@@ -15,8 +15,8 @@ const config = {
     // Feel free to reconfigure them to your own preference.
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-    // "@typescript-eslint/await-thenable": "warn",
     "@typescript-eslint/await-thenable": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
 
     "@typescript-eslint/consistent-type-imports": [
       "warn",

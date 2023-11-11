@@ -17,6 +17,7 @@ const PropertiesProvider = ({ children }: { children: React.ReactNode }) => {
   );
 
   return (
+    // @ts-ignore
     <PropertiesContext.Provider value={providerState}>
       {children}
     </PropertiesContext.Provider>
