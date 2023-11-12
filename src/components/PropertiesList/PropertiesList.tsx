@@ -5,13 +5,7 @@ import PropertyItem from "./PropertyItem";
 import { PropertiesContext } from "~/context/PropertiesContext";
 
 function PropertiesList() {
-
-  
   const { data } = api.property.getAll.useQuery();
-  
-  console.log(data);
-  
-  const ctx = api.useContext();
   
   const { searchInput } = useContext(PropertiesContext);
   
@@ -24,7 +18,7 @@ function PropertiesList() {
       <div className={styles.propertiesContaier}>
         <div className={styles.propertiesList}>
           {properties?.map(
-            ({ id, name, address, price, description, telephone }) => (
+            ({ id, name, address, price, description }) => (
               <PropertyItem
                 key={id}
                 id={id}
@@ -32,7 +26,6 @@ function PropertiesList() {
                 address={address}
                 price={price}
                 description={description}
-                telephone={telephone}
               />
             ),
           )}

@@ -31,8 +31,8 @@ const UploadedImages = ({
 
 function Properties() {
   const [show, setShow] = useState(false);
-  const { data, isLoading } = api.s3.getPresignedImages.useQuery();
-  console.log(data);
+  // const { data, isLoading } = api.s3.getPresignedImages.useQuery();
+  // console.log(data);
 
   return (
     <section className={styles.properties}>
@@ -51,12 +51,12 @@ function Properties() {
       <div className={styles.propertyWrapper}>
         <PropertiesList />
       </div>
-      <div className="flex justify-center gap-32">
+      {/* <div className="flex justify-center gap-32">
         <StandardDropzone />
-      </div>
-      <div className="flex justify-center gap-32 pb-5 pt-5">
+      </div> */}
+      {/* <div className="flex justify-center gap-32 pb-5 pt-5">
         {!isLoading && data && <UploadedImages images={data} />}
-      </div>
+      </div> */}
     </section>
   );
 }

@@ -1,8 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
 import { api } from "~/utils/api";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import styles from "~/styles/AddProperty.module.scss";
+import { v4 as uuidv4 } from "uuid";
+
+import { useMemo, useState } from "react";
+import axios from "axios";
 
 export type Property = {
   id: string;
@@ -10,11 +12,10 @@ export type Property = {
   address: string;
   price: string;
   description: string;
-  telephone: string;
+  image: string[];
 };
 
 function AddProperty() {
-  
   const ctx = api.useContext();
 
   const {
@@ -32,9 +33,46 @@ function AddProperty() {
     },
   });
 
-  const onSubmit: SubmitHandler<Property> = (newProp) => {
+  const onSubmit: SubmitHandler<Property> = async(newProp) => {
+    const file = images[0];
+    console.log(file);
+
+    await axios
+      .put(presignedUrl, file.slice(), {
+        headers: { "Content-Type": file.type },
+      })
+      .then((response) => {
+        console.log(response);
+        console.log("Successfully uploaded ", file.name);
+      })
+      .catch((err) => console.error(err));
+    setSubmitDisabled(true);
+    await ctx.s3.getPresignedImages.invalidate();
+
     console.log(newProp);
     mutate(newProp);
+  };
+
+  const [presignedUrl, setPresignedUrl] = useState<string | null>(null);
+  const [submitDisabled, setSubmitDisabled] = useState(true);
+  const [images, setImages] = useState<File[]>([]);
+
+  const { mutateAsync: fetchPresignedUrls } =
+    api.s3.getStandardUploadPresignedUrl.useMutation();
+
+  const handleUpload = (e: { target: { files: File } }) => {
+    setImages(e.target.files);
+    const fileName: string = uuidv4();
+
+    fetchPresignedUrls({
+      key: fileName,
+    })
+      .then((url) => {
+        console.log(url);
+        setPresignedUrl(url);
+        setSubmitDisabled(false);
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -50,14 +88,28 @@ function AddProperty() {
         {...register("address")}
       />
       <input type="text" placeholder="Property Price" {...register("price")} />
-      <input
-        type="text"
+      <textarea
+        rows={5}
+        cols={50}
         placeholder="Property Description"
         {...register("description")}
       />
-      <input type="text" placeholder="Telephone" {...register("telephone")} />
-      <input type="submit" className={styles.submit} />
-      <Link href="/">Back</Link>
+      <input
+        type="file"
+        multiple
+        className={styles.uploadImage}
+        {...register("image")}
+        onChange={handleUpload}
+      />
+      {/* <button
+        onClick={() => void submitFiles}
+        disabled={presignedUrl === null || submitDisabled}
+      >
+        Submit Files
+      </button> */}
+      <div className={styles.submitWrapper}>
+        <input type="submit" className={styles.submit} />
+      </div>
     </form>
   );
 }

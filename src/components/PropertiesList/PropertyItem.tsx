@@ -8,7 +8,6 @@ function PropertyItem({
   address,
   price,
   description,
-  telephone,
 }: Property) {
   const ctx = api.useContext();
 
@@ -36,11 +35,10 @@ function PropertyItem({
         X
       </button>
       <div className={styles.listingInfo}>
-        <h2>{name}</h2>
-        <p>{address}</p>
-        <p>{price}</p>
-        <p>{description}</p>
-        <p>{telephone}</p>
+        <h2 className={styles.name}>{name}</h2>
+        <p className={styles.address}>{address}</p>
+        <p className={styles.price}>{price}</p>
+        {/* <p>{description}</p> */}
       </div>
     </div>
   );

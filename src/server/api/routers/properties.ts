@@ -21,7 +21,6 @@ export const propertyRouter = createTRPCRouter({
           property.name.includes(input) ||
           property.address.includes(input) ||
           property.description.includes(input) ||
-          property.telephone.includes(input) ||
           property.price.includes(input)
         );
       });
@@ -47,7 +46,6 @@ export const propertyRouter = createTRPCRouter({
           address: input.address,
           price: input.price,
           description: input.description,
-          telephone: input.telephone,
           userId,
         },
       });
