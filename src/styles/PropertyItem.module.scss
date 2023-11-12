@@ -1,26 +1,47 @@
   .property {
-    width: 300px;
-    height: 320px;
-    background: #a78bfa;
+    width: 30%;
     border-radius: 5px;
     position: relative;
     border-radius: 10px;
-    
+    margin: 1rem;
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+
 
     .image {
-      width: 300px;
-      height: 150px;
+      height: 200px;
       background: #c4b5fd;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border-radius: 10px 10px 0 0;
     }
-    
-    .listingInfo{
+
+    .listingInfo {
       display: flex;
       flex-direction: column;
       text-align: center;
       align-items: center;
-      margin-top: 20px;
+      padding: 30px 20px;
+
+      .name {
+        font-size: calc(14pt + .25vw);
+        font-weight: 300;
+      }
+
+      .address {
+        margin-top: 5px;
+        font-size: calc(9pt + .25vw);
+        color: rgba(0, 10, 12, .65);
+      }
+
+      .price {
+        margin-top: 15px;
+        font-size: calc(14pt + .25vw);
+        &::before {
+          content: '$';
+        }
+      }
     }
 
     .delete {
@@ -28,7 +49,6 @@
       border-radius: 5px;
       cursor: pointer;
       margin-bottom: 20px;
-      background: #a5b4fc;
       position: absolute;
       right: 10px;
       width: 20px;

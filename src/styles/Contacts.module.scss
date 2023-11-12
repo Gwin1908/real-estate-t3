@@ -1,3 +1,56 @@
-.contacts{
+.contacts {
   height: 100vh;
+  background: url("../../public/bg-image3.jpg") no-repeat;
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+
+    .card {
+      width: 350px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 15px;
+      gap: 20px;
+      padding: 20px 0;
+      font-family: 'Julius Sans One', sans-serif;
+      
+      .image {
+        border-radius: 50%;
+        width: 200px;
+      }
+      
+      .name {
+        display: block;
+        font-size: calc(16pt + .5vw);
+      }
+
+      .contactInfo {
+        display: flex;
+        font-size: calc(12pt + .25vw);
+        line-height: 1.5em;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        gap: 5px;
+
+        .phone {
+          font-size: calc(12pt + .25vw);
+          line-height: 1.5em;
+        }
+
+        .email {
+          color: #005fff;
+        }
+      }
+      .agencyInfo {
+
+      }
+
+    }
+  }
 }

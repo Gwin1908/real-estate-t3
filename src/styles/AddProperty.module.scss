@@ -1,13 +1,14 @@
 .form {
-  width: 400px;
+  width: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   background: #60a5fa;
-  padding: 5px;
+  padding: 15px 10px 5px;
   border-radius: 5px;
   margin-bottom: 10px;
+
 
   .title {
     text-align: center;
@@ -15,14 +16,33 @@
   }
 
   input {
-    width: 390px;
-    height: 25px;
-    border-radius: 5px;
+    width: auto;
+    height: 30px;
+    border-radius: 3px;
     border: transparent;
   }
 
-  .submit {
+  textarea {
+    border-radius: 3px;
+  }
+
+  .uploadImage {
+    width: fit-content;
     cursor: pointer;
+  }
+
+  .submitWrapper{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+    .submit {
+      cursor: pointer;
+      width: 115px;
+      border-radius: 5px;
+      border: 1px solid #000;
+    }
+
   }
 
 }
