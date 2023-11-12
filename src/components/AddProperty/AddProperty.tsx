@@ -42,7 +42,7 @@ function AddProperty() {
         })
         .catch((err) => console.error(err));
       await ctx.s3.getPresignedImages.invalidate();
-    })
+    });
 
     console.log(newProp);
     mutate(newProp);
@@ -55,11 +55,13 @@ function AddProperty() {
   const { mutateAsync: fetchPresignedUrls } =
     api.s3.getStandardUploadPresignedUrl.useMutation();
 
-  const handleUpload = (e: { target: { files: File } }) => {
+  const handleUpload = (e: React.ChangeEvent) => {
+    const target = e.target as HTMLInputElement;
+    const imagesArr = Object.values(target.files!);
+
     const urls: string[] = [];
     const uuids: string[] = [];
-    const imagesArr = Object.values(e.target.files);
-    
+
     setImages(imagesArr);
 
     imagesArr.forEach(() => {
@@ -102,7 +104,9 @@ function AddProperty() {
         multiple
         className={styles.uploadImage}
         {...register("image")}
-        onChange={()=>{handleUpload}}
+        onChange={(e) => {
+          handleUpload(e);
+        }}
       />
       <div className={styles.submitWrapper}>
         <input type="submit" className={styles.submit} />

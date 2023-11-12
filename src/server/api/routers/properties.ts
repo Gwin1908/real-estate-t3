@@ -34,7 +34,6 @@ export const propertyRouter = createTRPCRouter({
         address: z.string(),
         price: z.string(),
         description: z.string(),
-        telephone: z.string(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
