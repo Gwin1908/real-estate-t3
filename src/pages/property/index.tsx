@@ -2,6 +2,7 @@ import Image from "next/image";
 // import { type EmblaOptionsType } from "embla-carousel-react";
 // import EmblaCarousel from "~/components/Carousel/EmblaCarousel";
 import styles from "~/styles/SingleProperty.module.scss";
+import { julius } from "../_app";
 
 function SingleProperty() {
   // const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
@@ -64,7 +65,7 @@ function SingleProperty() {
           reflect main house (not guest house). Shown only to prequalified
           buyers.
         </div>
-        <div className={styles.contacts}>
+        <div className={styles.contacts + " " + julius.className}>
           <Image
             src="/pr-image.jpg"
             alt="realtor photo"

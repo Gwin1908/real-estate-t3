@@ -1,6 +1,7 @@
 // import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { julius } from "~/pages/_app";
 import styles from "~/styles/Header.module.scss";
 
 
@@ -8,7 +9,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.wrapper}>
-        <Link className={styles.logo} href="/">
+        <Link className={styles.logo + " " + julius.className} href="/">
           {/* <Image src="/logo.svg" alt="Real Estate Agency Name" /> */}
           Agency Name
         </Link>
