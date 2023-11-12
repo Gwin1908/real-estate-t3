@@ -1,9 +1,10 @@
 import Image from "next/image";
 import styles from "../../styles/Contacts.module.scss";
+import { julius } from "../_app";
 
 function Contacts() {
   return (
-    <section className={styles.contacts}>
+    <section className={styles.contacts + " " + julius.className}>
       <div className={styles.wrapper}>
         <div className={styles.card}>
           {/* <Image
