@@ -12,7 +12,7 @@ export type Property = {
   address: string;
   price: string;
   description: string;
-  image: string[];
+  image?: string[];
 };
 
 function AddProperty() {
