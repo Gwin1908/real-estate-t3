@@ -1,8 +1,9 @@
+import { julius } from "~/pages/_app";
 import styles from "../../styles/FirstPage.module.scss";
 
 function FirstPage() {
   return (
-    <section className={styles.firstPage}>
+    <section className={styles.firstPage + " " + julius.className}>
       <div className={styles.title}>
         <h1 className={styles.title__header}>Agency Name</h1>
         <p>
