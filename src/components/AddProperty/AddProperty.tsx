@@ -12,7 +12,7 @@ export type Property = {
   address: string;
   price: string;
   description: string;
-  image?: string[];
+  images: string;
 };
 
 function AddProperty() {
@@ -28,9 +28,7 @@ function AddProperty() {
     },
   });
 
-  const onSubmit: SubmitHandler<Property> = (newProp) => {
-    console.log(presignedUrls);
-    console.log(uuidsArr);
+  const onSubmit: SubmitHandler<Property> = (newProp) => {    
     images.map(async (item, index) => {
       await axios
         .put(presignedUrls[index]!, images[index]!.slice(), {
@@ -78,6 +76,11 @@ function AddProperty() {
 
     setPresignedUrls(urls);
     setUuidsArr(uuids);
+
+    const uuidsStringified = uuids.join(", ");
+    console.log(uuidsStringified);
+
+    register("images", { value: uuidsStringified });
   };
 
   return (
@@ -103,7 +106,6 @@ function AddProperty() {
         type="file"
         multiple
         className={styles.uploadImage}
-        {...register("image")}
         onChange={(e) => {
           handleUpload(e);
         }}

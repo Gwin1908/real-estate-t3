@@ -18,7 +18,7 @@ function PropertiesList() {
       <div className={styles.propertiesContaier}>
         <div className={styles.propertiesList}>
           {properties?.map(
-            ({ id, name, address, price, description }) => (
+            ({ id, name, address, price, description, images }) => (
               <PropertyItem
                 key={id}
                 id={id}
@@ -26,6 +26,7 @@ function PropertiesList() {
                 address={address}
                 price={price}
                 description={description}
+                images={images}
               />
             ),
           )}

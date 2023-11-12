@@ -1,6 +1,7 @@
 import styles from "~/styles/PropertyItem.module.scss";
 import { api } from "~/utils/api";
 import type { Property } from "../AddProperty/AddProperty";
+import Image from "next/image";
 
 function PropertyItem({
   id,
@@ -8,12 +9,13 @@ function PropertyItem({
   address,
   price,
   description,
+  images,
 }: Property) {
   const ctx = api.useContext();
 
   const { mutate: deleteProp } = api.property.deleteProperty.useMutation({
     onSuccess: () => {
-      console.log("Property added");
+      console.log("Property deleted");
       void ctx.property.getAll.invalidate();
     },
   });
@@ -22,10 +24,21 @@ function PropertyItem({
     deleteProp({ id });
   };
 
+  const imagesArr = images.split(", ");
+
+  const { data } = api.s3.getPropertyImages.useQuery(imagesArr);
+
   return (
     <div className={styles.property}>
-      {/* <Image src={image} alt="property" width={300} height={200} /> */}
-      <div className={styles.image}>Image</div>
+      {!!data && data.length > 0 && (
+        <Image
+          src={data[0]!}
+          className={styles.image}
+          alt="property"
+          width={450}
+          height={350}
+        />
+      )}
       <button
         onClick={() => {
           handleDelete(id);

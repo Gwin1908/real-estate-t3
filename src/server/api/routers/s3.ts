@@ -21,8 +21,6 @@ export const s3Router = createTRPCRouter({
     });
 
     console.log(keysArr);
-    const jsonKeys = JSON.stringify(keysArr);
-    console.log(jsonKeys);
 
     const signedList = keysArr.map(async (key) => {
       const getObjectCommand = new GetObjectCommand({
@@ -34,6 +32,23 @@ export const s3Router = createTRPCRouter({
 
     return (await Promise.all(signedList)) ?? [];
   }),
+
+  getPropertyImages: publicProcedure
+    .input(z.array(z.string()))
+    .query(async ({ input, ctx }) => {
+      console.log(input)
+      const keysArr = input;
+      const { s3 } = ctx;
+      const signedList = keysArr.map(async (key) => {
+        const getObjectCommand = new GetObjectCommand({
+          Bucket: "kovtun-property-photos",
+          Key: key,
+        });
+        return await getSignedUrl(s3, getObjectCommand);
+      });
+
+      return (await Promise.all(signedList)) ?? [];
+    }),
 
   getStandardUploadPresignedUrl: publicProcedure
     .input(z.object({ key: z.string() }))
