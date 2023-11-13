@@ -1,13 +1,8 @@
 import Image from "next/image";
-// import { type EmblaOptionsType } from "embla-carousel-react";
-// import EmblaCarousel from "~/components/Carousel/EmblaCarousel";
 import styles from "~/styles/SingleProperty.module.scss";
 import { julius } from "../_app";
 
-function SingleProperty() {
-  // const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
-  // const SLIDE_COUNT = 4;
-  // const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+function SingleProperty2() {
 
   return (
     <section className={styles.singleProperty}>
@@ -17,9 +12,6 @@ function SingleProperty() {
           <p className={styles.city}>Malibu, CA</p>
         </div>
       </div>
-      {/* <div className={styles.carouselContainer}>
-        <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-      </div> */}
       <div className={styles.wrapper}>
         <div className={styles.header}>
           <h1>33602 Pacific Coast Highway, Malibu, CA, 90265</h1>
@@ -66,7 +58,7 @@ function SingleProperty() {
           buyers.
         </div>
         <div className={styles.contacts + " " + julius.className}>
-          <Image
+          <img
             src="/pr-image.jpg"
             alt="realtor photo"
             width={200}
@@ -87,4 +79,4 @@ function SingleProperty() {
   );
 }
 
-export default SingleProperty;
+export default SingleProperty2;

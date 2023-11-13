@@ -1,8 +1,13 @@
 .singleProperty {
+  min-height: 100vh;
   .bgImage {
     height: 100vh;
-    background: url("../../public/pr-image.jpg");
     position: relative;
+    .image {
+      object-fit: cover;
+      height: 100vh;
+      width: 100vw;
+    }
 
     .address {
       position: absolute;

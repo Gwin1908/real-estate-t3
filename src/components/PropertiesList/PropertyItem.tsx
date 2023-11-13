@@ -2,6 +2,7 @@ import styles from "~/styles/PropertyItem.module.scss";
 import { api } from "~/utils/api";
 import type { Property } from "../AddProperty/AddProperty";
 import Image from "next/image";
+import Link from "next/link";
 
 function PropertyItem({
   id,
@@ -31,13 +32,15 @@ function PropertyItem({
   return (
     <div className={styles.property}>
       {!!data && data.length > 0 && (
-        <Image
-          src={data[0]!}
-          className={styles.image}
-          alt="property"
-          width={450}
-          height={350}
-        />
+        <Link href={`/properties/${id}`}>
+          <img
+            src={data[0]!}
+            className={styles.image}
+            alt="property"
+            width={450}
+            height={350}
+          />
+        </Link>
       )}
       <button
         onClick={() => {

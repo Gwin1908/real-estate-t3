@@ -11,9 +11,19 @@ export const propertyRouter = createTRPCRouter({
     const properties = await ctx.db.property.findMany();
     return properties;
   }),
+  getPropertyById: publicProcedure
+  .input(z.string())
+  .query(async ({ input, ctx }) => {
+    const properties = await ctx.db.property.findFirst({
+      where: {
+        id: input,
+      },
+    });
+    return properties;
+  }),
 
   getSearched: publicProcedure
-    .input( z.string())
+    .input(z.string())
     .query(async ({ ctx, input }) => {
       const properties = await ctx.db.property.findMany();
       const searchedProperties = properties.filter((property) => {
