@@ -5,13 +5,10 @@ import Image from "next/image";
 import { type Property } from "../AddProperty/AddProperty";
 
 function SingleProperty({ id, images, name, description, address }:Property) {
-  console.log(images)
 
   const imagesArr = images.split(", ") ?? [];
-  console.log(imagesArr)
   
   const { data: imagesData } = api.s3.getPropertyImages.useQuery(imagesArr);
-  console.log(imagesData);
 
   return (
     <section className={styles.singleProperty}>
