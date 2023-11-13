@@ -51,7 +51,6 @@ function PropertyItem({
         <h2 className={styles.name}>{name}</h2>
         <p className={styles.address}>{address}</p>
         <p className={styles.price}>{price}</p>
-        {/* <p>{description}</p> */}
       </div>
     </div>
   );

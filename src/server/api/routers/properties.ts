@@ -30,7 +30,7 @@ export const propertyRouter = createTRPCRouter({
   postProperty: protectedProcedure
     .input(
       z.object({
-        name: z.string().min(1).max(20),
+        name: z.string().min(1).max(225),
         address: z.string(),
         price: z.string(),
         description: z.string(),
