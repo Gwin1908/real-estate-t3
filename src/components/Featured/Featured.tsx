@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "../../styles/Featured.module.scss";
 import Link from "next/link";
-import { useInView } from "react-hook-inview";
 
 function Featured() {
   return (
