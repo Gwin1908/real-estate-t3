@@ -1,17 +1,12 @@
 import Image from "next/image";
 import styles from "../../styles/Featured.module.scss";
 import Link from "next/link";
-import { useInView } from "react-intersection-observer";
+import { useInView } from "react-hook-inview";
 
 function Featured() {
-  const { ref, inView, entry } = useInView();
-
   return (
     <section className={styles.featured}>
-      <div
-        className={styles.container + " " + (inView ? styles.animation : " ")}
-        ref={ref}
-      >
+      <div className={styles.container}>
         <h1 className={styles.header}>Featured properties</h1>
         <div className={styles.mainCard}>
           <Image
