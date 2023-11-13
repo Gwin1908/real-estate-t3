@@ -2,8 +2,9 @@ import { api } from "~/utils/api";
 import styles from "~/styles/SingleProperty.module.scss";
 import { julius } from "~/pages/_app";
 import Image from "next/image";
+import { type Property } from "../AddProperty/AddProperty";
 
-function SingleProperty({ id, images, name, description, address }) {
+function SingleProperty({ id, images, name, description, address }:Property) {
   console.log(images)
 
   const imagesArr = images.split(", ") ?? [];
@@ -16,7 +17,7 @@ function SingleProperty({ id, images, name, description, address }) {
     <section className={styles.singleProperty}>
       <div className={styles.bgImage}>
         {!!imagesData && (
-            <img src={imagesData[0]} alt="property" width={1600} height={1000} className={styles.image}/>,
+            <img src={imagesData[0]} alt="property" width={1600} height={1000} className={styles.image}/>
           )}
         <div className={styles.address}>
           <p className={styles.street}>{name}</p>
