@@ -34,7 +34,7 @@ function PropertyItem({
       {!!data && data.length > 0 && (
         <Link href={`/properties/${id}`}>
           <img
-            src={data[0]!}
+            src={data[0]}
             className={styles.image}
             alt="property"
             width={450}
