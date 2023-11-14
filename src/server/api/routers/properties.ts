@@ -7,10 +7,12 @@ import {
 } from "~/server/api/trpc";
 
 export const propertyRouter = createTRPCRouter({
+  
   getAll: publicProcedure.query(async ({ ctx }) => {
     const properties = await ctx.db.property.findMany();
     return properties;
   }),
+
   getPropertyById: publicProcedure
   .input(z.string())
   .query(async ({ input, ctx }) => {
@@ -35,6 +37,16 @@ export const propertyRouter = createTRPCRouter({
         );
       });
       return searchedProperties;
+    }),
+
+  getFeatured: publicProcedure
+    .query(async ({ ctx }) => {
+      const properties = await ctx.db.property.findMany({
+        where: {
+          featured: true,
+        }
+      });
+      return properties;
     }),
 
   postProperty: protectedProcedure

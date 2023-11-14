@@ -1,9 +1,9 @@
-import styles from "~/styles/PropertyItem.module.scss";
-import { api } from "~/utils/api";
 import type { Property } from "../AddProperty/AddProperty";
 import Link from "next/link";
+import { api } from "~/utils/api";
+import styles from "~/styles/FeaturedItem.module.scss";
 
-function PropertyItem({
+function FeaturedItem({
   id,
   name,
   address,
@@ -11,18 +11,6 @@ function PropertyItem({
   description,
   images,
 }: Property) {
-  const ctx = api.useContext();
-
-  const { mutate: deleteProp } = api.property.deleteProperty.useMutation({
-    onSuccess: () => {
-      console.log("Property deleted");
-      void ctx.property.getAll.invalidate();
-    },
-  });
-
-  const handleDelete = (id: string) => {
-    deleteProp({ id });
-  };
 
   const imagesArr = images.split(", ");
 
@@ -36,19 +24,11 @@ function PropertyItem({
             src={data[0]}
             className={styles.image}
             alt="property"
-            width={450}
-            height={350}
+            width={1600}
+            height={1000}
           />
         </Link>
       )}
-      <button
-        onClick={() => {
-          handleDelete(id);
-        }}
-        className={styles.delete}
-      >
-        X
-      </button>
       <div className={styles.listingInfo}>
         <h2 className={styles.name}>{name}</h2>
         <p className={styles.address}>{address}</p>
@@ -57,4 +37,4 @@ function PropertyItem({
     </div>
   );
 }
-export default PropertyItem;
+export default FeaturedItem;

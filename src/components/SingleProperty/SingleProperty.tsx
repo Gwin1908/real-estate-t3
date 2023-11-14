@@ -1,7 +1,6 @@
 import { api } from "~/utils/api";
 import styles from "~/styles/SingleProperty.module.scss";
 import { julius } from "~/pages/_app";
-import Image from "next/image";
 import { type Property } from "../AddProperty/AddProperty";
 
 function SingleProperty({ id, images, name, description, address }:Property) {

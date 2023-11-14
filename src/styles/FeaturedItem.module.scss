@@ -1,0 +1,60 @@
+  .property {
+    border-radius: 5px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+
+    .image {
+      max-height: 1250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .listingInfo {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding: 30px 20px;
+
+      .name {
+        font-size: calc(14pt + .15vw);
+        font-weight: 300;
+      }
+
+      .address {
+        margin-top: 5px;
+        font-size: calc(9pt + .25vw);
+        color: rgba(0, 10, 12, .65);
+      }
+
+      .price {
+        margin-top: 15px;
+        font-size: calc(14pt + .25vw);
+
+        &::before {
+          content: '$';
+        }
+      }
+    }
+
+    .delete {
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      position: absolute;
+      right: 10px;
+      width: 20px;
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .property {
+      width: 100%;
+    }
+  }

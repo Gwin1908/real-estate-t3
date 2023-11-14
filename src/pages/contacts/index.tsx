@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "../../styles/Contacts.module.scss";
 import { julius } from "../_app";
 
@@ -7,7 +6,7 @@ function Contacts() {
     <section className={styles.contacts + " " + julius.className}>
       <div className={styles.wrapper}>
         <div className={styles.card}>
-          {/* <Image
+          {/* <img
             src="/photo.jpg"
             width={150}
             height={150}
