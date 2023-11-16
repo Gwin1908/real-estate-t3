@@ -1,0 +1,70 @@
+.formWrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+
+  .contactForm {
+    border-radius: 15px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: 600px;
+    margin: 20px auto 0 auto;
+    gap: 7px;
+
+    .formGroup {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      align-content: stretch;
+      width: calc(100%);
+      gap: 7px;
+      border-radius: 10px;
+
+      .inpuntHalf {
+        height: 45px;
+        width: auto;
+        border-radius: 10px;
+        flex: 1 1 auto;
+        padding-left: 10px;
+      }
+
+      .inpuntFull {
+        height: 45px;
+        width: auto;
+        border-radius: 15px;
+        flex: 1 1 auto;
+        padding-left: 10px;
+      }
+
+      .textArea {
+        height: 55px;
+        padding-top: 5px;
+      }
+
+      .submitBtn {
+        margin: auto;
+        margin-top: 10px;
+        padding: 12px 25px;
+        background-color: #000a0c;
+        color: #fff;
+        font-size: calc(11pt + .1vw);
+        font-weight: 300;
+        line-height: 1em;
+        border: 2px #000a0c solid;
+        border-radius: 5px;
+        cursor: pointer;
+        transform: translateY(0);
+        transition: transform .15s ease-in-out, box-shadow .15s ease-in-out, background-color .15s, border-color .15s ease-in-out;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,11 @@
+import ContactForm from "~/components/ContactForm/ContactForm";
 import styles from "../../styles/Contacts.module.scss";
 import { julius } from "../_app";
 
 function Contacts() {
   return (
     <section className={styles.contacts + " " + julius.className}>
-      <div className={styles.wrapper}>
+      <div className={styles.cardWrapper}>
         <div className={styles.card}>
           {/* <img
             src="/photo.jpg"
@@ -23,6 +24,7 @@ function Contacts() {
           <p className={styles.agencyInfo}>Agency info</p>
         </div>
       </div>
+      <ContactForm />
     </section>
   );
 }

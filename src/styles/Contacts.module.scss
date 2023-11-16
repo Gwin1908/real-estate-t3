@@ -1,8 +1,8 @@
 .contacts {
-  height: 100vh;
+  min-height: 100vh;
   background: url("../../public/bg-image3.jpg") no-repeat;
 
-  .wrapper {
+  .cardWrapper {
     display: flex;
     justify-content: center;
     padding-top: 200px;
@@ -17,12 +17,12 @@
       border-radius: 15px;
       gap: 20px;
       padding: 20px 0;
-      
+
       .image {
         border-radius: 50%;
         width: 200px;
       }
-      
+
       .name {
         display: block;
         font-size: calc(16pt + .5vw);
@@ -46,10 +46,11 @@
           color: #005fff;
         }
       }
-      .agencyInfo {
 
-      }
+      .agencyInfo {}
 
     }
   }
 }
+
+
