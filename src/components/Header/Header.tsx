@@ -19,6 +19,9 @@ function Header() {
           <Link className={styles.nav__link} href="/contacts">
             Contacts
           </Link>
+          <Link className={styles.nav__link} href="/admin">
+            Admin cabinet
+          </Link>
           <AuthShowcase />
         </div>
       </nav>
