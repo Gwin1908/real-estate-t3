@@ -2,6 +2,9 @@ import styles from "~/styles/PropertyItem.module.scss";
 import { api } from "~/utils/api";
 import type { Property } from "../AddProperty/AddProperty";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
+
+
 
 function PropertyItem({
   id,
@@ -19,6 +22,8 @@ function PropertyItem({
       void ctx.property.getAll.invalidate();
     },
   });
+
+  const pathname = usePathname()
 
   const handleDelete = (id: string) => {
     deleteProp({ id });
@@ -41,14 +46,15 @@ function PropertyItem({
           />
         </Link>
       )}
-      <button
+      {pathname === '/admin'? <button
         onClick={() => {
           handleDelete(id);
         }}
         className={styles.delete}
       >
         X
-      </button>
+      </button> : null }
+      
       <div className={styles.listingInfo}>
         <h2 className={styles.name}>{name}</h2>
         <p className={styles.address}>{address}</p>
