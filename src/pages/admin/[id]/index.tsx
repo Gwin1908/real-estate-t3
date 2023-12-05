@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import SingleProperty from "~/components/SingleProperty/SingleProperty";
+import SinglePropertyModifiable from "~/components/SingleProperty/SinglePropertyModifiable";
 import { api } from "~/utils/api";
 
 function PropertyById() {
@@ -11,7 +11,7 @@ function PropertyById() {
 
   return (
     !!data && (
-      <SingleProperty
+      <SinglePropertyModifiable
         id={data.id}
         images={data.images}
         name={data.name}

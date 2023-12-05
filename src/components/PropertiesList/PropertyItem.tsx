@@ -4,8 +4,6 @@ import type { Property } from "../AddProperty/AddProperty";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
 
-
-
 function PropertyItem({
   id,
   name,
@@ -36,7 +34,7 @@ function PropertyItem({
   return (
     <div className={styles.property}>
       {!!data && data.length > 0 && (
-        <Link href={`/properties/${id}`}>
+        <Link href={`/${pathname}/${id}`}>
           <img
             src={data[0]}
             className={styles.image}

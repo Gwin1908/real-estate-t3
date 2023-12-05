@@ -94,3 +94,32 @@
     }
   }
 }
+
+.adminInputHeader {
+  font-size: calc(24pt + 0.05vw);
+  font-weight: 300;
+  width: 100%;
+}
+
+.adminTextarea {
+  font-size: calc(14pt + .05vw);
+  font-weight: 300;
+  line-height: 1.5em;
+  width: 100%;
+}
+
+.submitBtn {
+  margin: auto;
+    margin-top: 10px;
+    padding: 12px 25px;
+    background-color: #000a0c;
+    color: #fff;
+    font-size: calc(11pt + 0.1vw);
+    font-weight: 300;
+    line-height: 1em;
+    border: 2px #000a0c solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: translateY(0);
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s, border-color 0.15s ease-in-out;
+}
