@@ -34,7 +34,7 @@ function PropertyItem({
   return (
     <div className={styles.property}>
       {!!data && data.length > 0 && (
-        <Link href={`/${pathname}/${id}`}>
+        <Link href={`${pathname}/${id}`}>
           <img
             src={data[0]}
             className={styles.image}
