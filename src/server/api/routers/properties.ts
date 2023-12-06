@@ -74,6 +74,25 @@ export const propertyRouter = createTRPCRouter({
       });
       return post;
     }),
+  modifyProperty: protectedProcedure
+  .input(z.object({
+    id: z.string(),
+    name: z.string(),
+    description: z.string(),
+    address: z.string(),
+  }))
+  .mutation(async ({ ctx, input }) => {
+    return await ctx.db.property.update({
+      where: {
+        id: input.id,
+      },
+      data: {
+        name: input.name,
+        description: input.description,
+        address: input.address,
+      }
+    })
+  }),
 
   deleteProperty: protectedProcedure
     .input(

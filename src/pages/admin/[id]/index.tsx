@@ -6,6 +6,7 @@ function PropertyById() {
   const router = useRouter();
 
   const propertyId = router.query.id?.toString() ?? ""
+  console.log(propertyId)
 
   const { data } = api.property.getPropertyById.useQuery(propertyId);
 

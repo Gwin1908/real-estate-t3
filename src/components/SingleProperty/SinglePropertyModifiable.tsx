@@ -5,16 +5,33 @@ import { julius } from "~/pages/_app";
 import { type SubmitHandler, useForm } from "react-hook-form";
 
 function SinglePropertyModifiable({ id, images, name, description, address }:Property) {
+  
+  const ctx = api.useContext();
 
   const imagesArr = images.split(", ") ?? [];
   
   const { data: imagesData } = api.s3.getPropertyImages.useQuery(imagesArr);
 
+  const {mutate} = api.property.modifyProperty.useMutation({    
+    onSuccess: () => {
+    reset();
+    console.log("Property modified");
+    void ctx.property.getAll.invalidate();
+  },
+})
+
   const { register, handleSubmit, reset } = useForm<Property>();
 
   const onSubmit: SubmitHandler<Property> = (newProp) => {
     console.log(newProp);
+    mutate({
+      id,
+      name: newProp.name,
+      description: newProp.description,
+      address: newProp.address,
+    })
   };
+
 
   return (
     <section className={styles.singleProperty}>
@@ -46,6 +63,7 @@ function SinglePropertyModifiable({ id, images, name, description, address }:Pro
           </div>
         </div>
         <textarea className={styles.adminTextarea} {...register("description")} placeholder="Enter Description" defaultValue={description} rows={15}></textarea>
+        <input className={styles.adminInput} {...register("address")} placeholder="Enter Address" defaultValue={address}></input>
         <button className={styles.submitBtn} type="submit">Submit</button>
         <div className={styles.contacts + " " + julius.className}>
           <img
