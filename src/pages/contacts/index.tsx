@@ -14,9 +14,9 @@ function Contacts() {
             alt="photo"
             className={styles.image}
           /> */}
-          <p className={styles.name}>Natalia Kovtun</p>
+          <p className={styles.name}>Agent name</p>
           <div className={styles.contactInfo}>
-            <p className={styles.phone}>(067) 939-09-30</p>
+            <p className={styles.phone}>(063) 777-77-77</p>
             <a href="mailto:7987594@ukr.net" className={styles.email}>
               7987594@ukr.net
             </a>
