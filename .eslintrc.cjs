@@ -18,6 +18,7 @@ const config = {
     "@typescript-eslint/await-thenable": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@next/next/no-img-element": "off",
+    "@typescript-eslint/no-floating-promises": "off",
 
     "@typescript-eslint/consistent-type-imports": [
       "warn",
